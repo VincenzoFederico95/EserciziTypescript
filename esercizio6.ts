@@ -2,32 +2,48 @@
  * START: Follow the instructions below.
  */
 
-// Add the `any` type to fix the type errors in the following code.
+// Change the `Country` interface so the `population` property is optional.
+// This will fix the type error for `countryB`.
 
-let currency : any = { name: "Indian rupee" };
-
-currency.code = "THB";
-
-currency = "Baht";
-
-// Fix the if statement in this function so the type of `value` is narrowed to `string`.
-
-function countryNameLength(value: unknown) {
-    if (typeof value === "string") {
-        console.log(value.length);
-    }
+interface Country {
+    name: string;
+    code: string;
+    population?: number;
 }
 
-countryNameLength("United States of America");
+const countryA: Country = {
+    name: "India",
+    code: "IN",
+    population: 1_352_642_280,
+};
 
-// Fix the type error we see when calling this function.
-// Hint: Replace one of the `never` types with a different type.
+const countryB: Country = {
+    name: "Italy",
+    code: "IT"
+};
 
-function throwCountryError(message: string): never {
-    throw new Error(`Could not find country: ${message}`);
-}
+const countryC: Country = {
+    name: "Spain",
+    code: "ES",
+    population: 47_450_795,
+};
 
-throwCountryError("Narnia");
+// Change the `Currency` type alias so the `name` property cannot be changed.
+// This will cause a type error. Remove the code that now has a type error.
+
+type Currency = {
+   readonly name: string;
+    code: string;
+    symbol: string;
+};
+
+const currencyData: Currency = {
+    name: "Euro",
+    code: "EUR",
+    symbol: "€",
+};
+
+currencyData.code = "GGG";
 
 // ----
 
