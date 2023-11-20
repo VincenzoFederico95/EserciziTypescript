@@ -1,0 +1,1 @@
+let notes: (number | string)[] = ["Get Food", 23, "Call the previous number when betting"];
