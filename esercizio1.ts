@@ -1,1 +1,1 @@
-let ciao = "ciao"
+interface matteo {}
